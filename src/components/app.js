@@ -1,11 +1,14 @@
+import React from 'react';
 import Display from './display';
-import ButtonPanel from './button_panel';
+import ButtonPannel from './button_panel';
 
-const App = () => (
-  <div>
-    <Display result="0" />
-    <ButtonPanel />
-  </div>
-);
+function App() {
+  return (
+    <div className="App">
+      <Display />
+      <ButtonPannel />
+    </div>
+  );
+}
 
 export default App;
