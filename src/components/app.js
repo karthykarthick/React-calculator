@@ -1,6 +1,9 @@
 import React from 'react';
 import Display from './display';
 import ButtonPannel from './button_panel';
+import Calculate from '../logic/calculate';
+
+Calculate();
 
 function App() {
   return (
