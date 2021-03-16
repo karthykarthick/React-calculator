@@ -1,6 +1,6 @@
-# React Calculator - Milestone 2
+# React Calculator - Milestone 5
 
-#### Hello there! Welcome to my React Calculator Milestone 2!
+#### Hello there! Welcome to my React Calculator Milestone 5!
 
 #### Features
 - ReactJS app start;
