@@ -1,21 +1,18 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 
-function Display(props) {
-  const { calculation } = props;
-  return (
-    <div>
-      { calculation }
-    </div>
-  );
-}
-
-Display.defaultProps = {
-  calculation: '0',
-};
+const Display = ({ result }) => (
+  <div>
+    <span>Result: </span>
+    { result }
+  </div>
+);
 
 Display.propTypes = {
-  calculation: PropTypes.string,
+  result: PropTypes.string,
+};
+
+Display.defaultProps = {
+  result: '0',
 };
 
 export default Display;

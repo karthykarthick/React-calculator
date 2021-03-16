@@ -1,26 +1,26 @@
-import React from 'react';
 import Button from './button';
 
-const keys = [
+const buttons = [
   ['AC', '+/-', '%', '÷'],
   ['7', '8', '9', 'X'],
   ['4', '5', '6', '-'],
   ['1', '2', '3', '+'],
   ['0', '.', '='],
 ];
-
-const keyOperators = keys.map(row => (
-  <div key={row.toString()}>
-    { row.map(button => <Button button={button} key={button} />) }
-  </div>
-));
-
-function ButtonPannel() {
+const buttonsNew = [];
+const ButtonPanel = () => {
+  for (let i = 0; i < buttons.length; i += 1) {
+    buttonsNew.push(
+      <div key={`group + ${i}`}>
+        {
+          buttons[i].map(name => <Button key={name} name={name} />)
+        }
+      </div>,
+    );
+  }
   return (
-    <div>
-      { keyOperators }
-    </div>
+    buttonsNew
   );
-}
+};
 
-export default ButtonPannel;
+export default ButtonPanel;

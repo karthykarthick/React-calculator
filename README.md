@@ -1,6 +1,6 @@
-# React Calculator - Milestone 1
+# React Calculator - Milestone 4
 
-#### Hello there! Welcome to my React Calculator Milestone 1!
+#### Hello there! Welcome to my React Calculator Milestone 4!
 
 #### Features
 - ReactJS app start;
@@ -10,7 +10,7 @@
 
 #### Livedemo
 
-- [Heroku](https://rocky-citadel-29366.herokuapp.com/)
+- [Heroku](https://dazzling-chandrasekhar-40a8ca.netlify.app/)
 
 ## Built With
 

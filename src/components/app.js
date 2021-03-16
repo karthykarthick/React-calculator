@@ -1,19 +1,14 @@
-import React from 'react';
 import Display from './display';
-import ButtonPannel from './button_panel';
+import ButtonPanel from './button_panel';
 import Calculate from '../logic/calculate';
 
 Calculate();
 
-function App() {
-  return (
-    <div className="App">
-      <>
-        <Display result="0" />
-        <ButtonPannel />
-      </>
-    </div>
-  );
-}
+const App = () => (
+  <div>
+    <Display result="0" />
+    <ButtonPanel />
+  </div>
+);
 
 export default App;
