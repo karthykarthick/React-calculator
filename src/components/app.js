@@ -1,16 +1,32 @@
+/* eslint-disable */
 import React from 'react';
 import Display from './display';
-import ButtonPannel from './button_panel';
+import ButtonPanel from './button_panel';
+import Calculate from '../logic/calculate';
 
-function App() {
-  return (
-    <div className="App">
-      <>
-        <Display result="0" />
-        <ButtonPannel />
-      </>
-    </div>
-  );
+class App extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      total: null,
+      next: null,
+      operation: null,
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick = buttonName => {
+    this.setState(state => Calculate(state, buttonName))
+  }
+
+  render() {
+    return (
+      <div>
+        <Display result={this.state.next ? this.state.next : this.state.total} />
+        <ButtonPanel onClick={this.handleClick} />
+      </div>
+    );
+  }
 }
 
 export default App;
