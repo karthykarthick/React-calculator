@@ -10,7 +10,7 @@
 
 #### Livedemo
 
-- [Heroku](https://rocky-citadel-29366.herokuapp.com/)
+- [Heroku](https://dazzling-chandrasekhar-40a8ca.netlify.app/)
 
 ## Built With
 
