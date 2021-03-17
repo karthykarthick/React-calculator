@@ -35,6 +35,9 @@ Install packages with
 ```
   npm install
 ```
+```
+  npm test
+```
 
 Start server with:
 
