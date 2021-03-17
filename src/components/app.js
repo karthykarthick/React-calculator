@@ -1,20 +1,33 @@
+/* eslint-disable */
 import React from 'react';
 import Display from './display';
 import ButtonPanel from './button_panel';
 import Calculate from '../logic/calculate';
 
-const App = () => {
-  // eslint-disable-next-line no-console
-  console.log(Calculate);
-  return (
+class App extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      total: null,
+      next: null,
+      operation: null,
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
 
-    <div className="App">
-      <h1>React Calculator</h1>
-      <Display />
-      <ButtonPanel />
+  handleClick = buttonName => {
+    this.setState(state => Calculate(state, buttonName))
+  }
 
-    </div>
-  );
-};
+  render() {
+    return (
+      <div>
+        <Display result={this.state.next ? this.state.next : this.state.total} />
+        <ButtonPanel onClick={this.handleClick} />
+      </div>
+    );
+  }
+}
+
 
 export default App;

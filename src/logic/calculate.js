@@ -1,47 +1,68 @@
-import Operate from './operate';
+import operate from './operate';
 
-const Calculate = ((object, btnName) => {
-  let { total, next, operation } = object;
-  const operator = /[x,+,÷,-]/;
-  switch (btnName) {
+const Calculate = (data, buttonName) => {
+  let { total, next, operation } = data;
+
+  const calcOperations = ['x', '+', '-', '÷', '='];
+  const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+  switch (buttonName) {
     case 'AC':
       total = null;
       next = null;
+      operation = null;
       break;
     case '+/-':
-      total *= -1;
       next *= -1;
+      total *= -1;
       break;
     case '%':
-      total = Operate(total, 100, '÷');
-      break;
-    case operator.includes(btnName):
-      if (operation && next) {
-        total = Operate(total, next, operation);
+      if (next == null) {
+        next = String(total / 100);
       } else {
-        operation = btnName;
+        next = String(next / 100);
       }
       break;
     case '.':
-      if (operation) {
-        next = next ? `${next}.` : '0.';
-      } else {
-        total = total ? `${total}.` : '0.';
-      }
-      break;
-    case '=':
-      if (operation && next) {
-        total = Operate(total, next, operation);
+      if (!next.includes('.')) {
+        next += '.';
       }
       break;
     default:
-      if (operation && total) {
-        next = next ? next + btnName : btnName;
-      } else {
-        total = total ? total + btnName : btnName;
-      }
       break;
   }
-});
+
+  if (calcOperations.includes(buttonName)) {
+    if (operation !== null) {
+      total = String(operate(total, next, operation));
+      next = null;
+    } else if (next != null) {
+      total = next;
+      next = null;
+    }
+    if (buttonName !== '=') {
+      operation = buttonName;
+    } else {
+      operation = null;
+    }
+  }
+
+  if (numbers.includes(buttonName)) {
+    if (next != null) {
+      next += buttonName;
+    } else {
+      next = buttonName;
+    }
+  }
+
+  const calculator = {
+    total,
+    next,
+    operation,
+  };
+
+  return calculator;
+};
+
 
 export default Calculate;

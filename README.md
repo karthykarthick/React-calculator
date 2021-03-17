@@ -1,7 +1,7 @@
 
-# React Calculator - Milestone 4
+# React Calculator - Milestone 5
 
-#### Hello there! Welcome to my React Calculator Milestone 4!
+#### Hello there! Welcome to my React Calculator Milestone 5!
 
 
 #### Features

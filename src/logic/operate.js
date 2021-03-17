@@ -1,24 +1,33 @@
 import Big from 'big.js';
 
-export default function Operate(numberOne, numberTwo, operation) {
-  const num1 = Big(numberOne);
-  const num2 = Big(numberTwo);
-  let result;
+const Operate = (numberOne, numberTwo, operation) => {
+  const valueOne = Big(numberOne);
+  const valueTwo = Big(numberTwo);
+  let total = 0;
+
   switch (operation) {
-    case '*':
-      result = num1.times(num2);
-      break;
-    case '÷':
-      result = num1.div(num2);
-      break;
     case '+':
-      result = num1.plus(num2);
+      total = valueOne.plus(valueTwo);
       break;
     case '-':
-      result = num1.minus(num2);
+      total = valueOne.minus(valueTwo);
       break;
+    case 'x':
+      total = valueOne.times(valueTwo);
+      break;
+    case '÷':
+      if (numberTwo === '0') {
+        total = "Can't divide by zero";
+      } else {
+        total = valueOne.div(valueTwo);
+      }
+      break;
+
     default:
       break;
   }
-  return result;
-}
+  return total;
+};
+
+export default Operate;
+
