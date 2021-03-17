@@ -24,7 +24,9 @@ const Calculate = (data, buttonName) => {
       }
       break;
     case '.':
-      if (!next.includes('.')) {
+      if (next == null) {
+        next = '0.';
+      } else if (!next.includes('.')) {
         next += '.';
       }
       break;
@@ -63,6 +65,5 @@ const Calculate = (data, buttonName) => {
 
   return calculator;
 };
-
 
 export default Calculate;
