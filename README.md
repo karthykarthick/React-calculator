@@ -1,6 +1,6 @@
-# React Calculator - Milestone 5
+# React Calculator - Math-magicians 
 
-#### Hello there! Welcome to my React Calculator Milestone 5!
+#### Hello there! Welcome to my React Calculator Math-magicians!
 
 #### Features
 - ReactJS app start;
@@ -10,7 +10,7 @@
 
 #### Livedemo
 
-- [Heroku](https://dazzling-chandrasekhar-40a8ca.netlify.app/)
+- [Heroku]()
 
 ## Built With
 
