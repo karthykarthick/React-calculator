@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 
+
 const Display = ({ result }) => (
   <div id="display">
     { result }
@@ -12,6 +13,6 @@ Display.propTypes = {
 
 Display.defaultProps = {
   result: '0',
-};
 
+};
 export default Display;

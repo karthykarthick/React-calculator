@@ -34,3 +34,4 @@ const Operate = (numberOne, numberTwo, operation) => {
 };
 
 export default Operate;
+

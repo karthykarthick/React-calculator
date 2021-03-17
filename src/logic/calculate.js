@@ -66,4 +66,5 @@ const Calculate = (data, buttonName) => {
   return calculator;
 };
 
+
 export default Calculate;
