@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 
-
 const Display = ({ result }) => (
   <div id="display">
     { result }
