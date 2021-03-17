@@ -1,25 +1,47 @@
-import operate from './operate';
+import Operate from './operate';
 
-// data has mock information so the app won't crash
-const Calculate = (data = { total: null, next: null, operation: null }, btnName = '+') => {
-  let { total, next, operation } = data;
-
-  if (btnName === 'AC') {
-    total = 0;
-    next = 0;
-    operation = '';
-  } else if (btnName === '+/-') {
-    total *= -1;
-    next *= -1;
-  } else if (['÷', 'X', '+', '-', '%'].includes(btnName)) {
-    operation = btnName;
-    operate(total, next, operation);
-  } else if (btnName === '=') {
-    return total;
-  } else if (btnName === '.') {
-    total += btnName;
+const Calculate = ((object, btnName) => {
+  let { total, next, operation } = object;
+  const operator = /[x,+,÷,-]/;
+  switch (btnName) {
+    case 'AC':
+      total = null;
+      next = null;
+      break;
+    case '+/-':
+      total *= -1;
+      next *= -1;
+      break;
+    case '%':
+      total = Operate(total, 100, '÷');
+      break;
+    case operator.includes(btnName):
+      if (operation && next) {
+        total = Operate(total, next, operation);
+      } else {
+        operation = btnName;
+      }
+      break;
+    case '.':
+      if (operation) {
+        next = next ? `${next}.` : '0.';
+      } else {
+        total = total ? `${total}.` : '0.';
+      }
+      break;
+    case '=':
+      if (operation && next) {
+        total = Operate(total, next, operation);
+      }
+      break;
+    default:
+      if (operation && total) {
+        next = next ? next + btnName : btnName;
+      } else {
+        total = total ? total + btnName : btnName;
+      }
+      break;
   }
-  return total;
-};
+});
 
 export default Calculate;

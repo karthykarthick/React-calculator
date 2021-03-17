@@ -1,26 +1,39 @@
-import Button from './button';
+import React from 'react';
+import Buttons from './button';
 
-const buttons = [
-  ['AC', '+/-', '%', '÷'],
-  ['7', '8', '9', 'X'],
-  ['4', '5', '6', '-'],
-  ['1', '2', '3', '+'],
-  ['0', '.', '='],
-];
-const buttonsNew = [];
-const ButtonPanel = () => {
-  for (let i = 0; i < buttons.length; i += 1) {
-    buttonsNew.push(
-      <div key={`group + ${i}`}>
-        {
-          buttons[i].map(name => <Button key={name} name={name} />)
-        }
-      </div>,
-    );
-  }
+export default function ButtonPanel() {
   return (
-    buttonsNew
-  );
-};
+    <div className="panel">
+      <div className="group1">
+        <Buttons value="AC" />
+        <Buttons value="+/-" />
+        <Buttons value="%" />
+        <Buttons value="÷" />
+      </div>
+      <div className="group2">
+        <Buttons value="8" />
+        <Buttons value="9" />
+        <Buttons value="7" />
+        <Buttons value="X" />
+      </div>
+      <div className="group3">
+        <Buttons value="4" />
+        <Buttons value="5" />
+        <Buttons value="6" />
+        <Buttons value="-" />
+      </div>
+      <div className="group4">
+        <Buttons value="1" />
+        <Buttons value="2" />
+        <Buttons value="3" />
+        <Buttons value="+" />
+      </div>
+      <div className="group5">
+        <Buttons value="0" />
+        <Buttons value="." />
+        <Buttons value="=" />
 
-export default ButtonPanel;
+      </div>
+    </div>
+  );
+}
